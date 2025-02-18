@@ -1,0 +1,158 @@
+body {
+    height: 200vh;
+}
+
+.scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    margin: auto;
+    text-align: center;
+}
+
+.frame {
+    position: fixed;
+    background-color: #8fb5c1;
+    overflow: hidden;
+}
+
+.frame .bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: auto;
+}
+
+.top {
+    width: 200vw;
+    height: 70px;
+    z-index: 2;
+    right: 0;
+    left: 0;
+    height: 70px;
+    border-bottom: 1px solid #000;
+    animation: top linear;
+    /* アニメーションを指定。イージングはlinear */
+    animation-timeline: scroll();
+}
+
+.bottom {
+    width: 200vw;
+    height: 70px;
+    z-index: 4;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    height: 70px;
+    border-top: 1px solid #000;
+    animation: bottom linear;
+    /* アニメーションを指定。イージングはlinear */
+    animation-timeline: scroll();
+}
+
+.left {
+    width: 70px;
+    height: 200vh;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-right: 1px solid #000;
+    animation: left linear;
+    /* アニメーションを指定。イージングはlinear */
+    animation-timeline: scroll();
+}
+
+.right {
+    width: 70px;
+    height: 200vh;
+    z-index: 3;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-left: 1px solid #000;
+    animation: right linear;
+    /* アニメーションを指定。イージングはlinear */
+    animation-timeline: scroll();
+}
+
+.right .bg {
+    width: 500%;
+    background-image: url(./image/y-slider.svg);
+}
+
+.left .bg {
+    width: 500%;
+    background-image: url(./image/y-slider.svg);
+}
+
+.bottom .bg {
+    width: 500%;
+    background-image: url(./image/x-slider.svg);
+}
+
+.top .bg {
+    width: 500%;
+    background-image: url(./image/x-slider.svg);
+}
+
+@keyframes top {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+
+@keyframes bottom {
+    from {
+        transform: translateX(-50%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes left {
+    from {
+        transform: translateY(-50%);
+    }
+
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes right {
+    from {
+        transform: translateY(0%);
+    }
+
+    to {
+        transform: translateY(-50%);
+    }
+}
